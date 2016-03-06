@@ -72,3 +72,6 @@ Result:
     struct = &{2 second} (0x1e1f48), address = 0x1040a130
     struct = &{3 fourth} (0x1e1f58), address = 0x1040a130
     struct = &{4 fifth} (0x1e1f68), address = 0x1040a130
+
+
+http://play.golang.org/p/wF1pijfsVL
