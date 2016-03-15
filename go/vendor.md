@@ -3,8 +3,9 @@
 Starting from Go 1.5 you can use Vendoring for Go applications - simply put packages into `vendor` folder and they will be used as primary source for package lookup.
 
 
-Example script for preparing vendor folder:
+### Manual handling vendor folder
 
+You can manually support the content of vendor folder:
 
     # assuming you're in the root folder of your project
     mkdir vendor
@@ -28,3 +29,12 @@ Example script for preparing vendor folder:
     
     # removing .git folders
     find . | grep "\.git$" | xargs rm -rf
+
+
+### Using package manager
+
+There are a lot of package managers written for Go. There is a list in official Go' Github repo - https://github.com/golang/go/wiki/PackageManagementTools
+
+I personally prefer [rancher/trash](https://github.com/rancher/trash) because it does what should be done. The only thing I noticed is that it often misses dependent packages of vendored packages, so you have to manually add them into your `trash.yml` file.
+
+Luckily enough, this is a rare task.
