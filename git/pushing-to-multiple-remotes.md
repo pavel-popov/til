@@ -1,4 +1,4 @@
-# Pushing to multiple remotes with one commend
+# Pushing to multiple remotes with one command
 
 There's a question on StackOverflow - [Able to push to all git remotes with the one command?][ques].
 
