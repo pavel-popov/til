@@ -1,0 +1,76 @@
+#+TITLE: git
+#+AUTHOR: Pavel Popov
+
+
+* my .gitconfig
+
+#+BEGIN_SRC conf
+[user]
+  name = Pavel Popov
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+[color]
+  ui = auto
+[push]
+  default = simple
+
+[diff]
+  tool = araxis
+  guitool = araxis
+
+[diff.tool "araxis"]
+  path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+  cmd = /Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[merge]
+  tool = araxis
+  guitool = araxis
+
+[merge.tool "araxis"]
+  path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+  cmd = /Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+  # http://gggritso.com/human-git-aliases
+  unstage = reset -q HEAD --
+  discard = checkout --
+  nevermind = !git reset --hard HEAD && git clean -d -f
+  uncommit = reset --mixed HEAD~
+  save = commit -m
+  resave = commit --amend
+  invert = revert
+  last = log -1 HEAD --format=format:"%Cred%H"
+  summary = status -u -s
+  graph = log --graph --branches --remotes --tags  --format=format:'%Cgreen%h %Creset‚Ä¢ %<(75,trunc)%s (%cN, %ar) %Cred%d' --date-order
+  history = log --format=format:'%Cgreen%h %Creset‚Ä¢ %s (%cN, %ar)'
+  branchout = checkout -b
+  tags = tag
+  branches = branch -a
+  stashes = stash list
+  remotes = remote -v
+  prestage = diff -w --word-diff=color
+  precommit = diff --cached -w --word-diff=color --word-diff-regex='[^[:space:]<>]+'
+  move = mv
+  remove = rm
+  unmerged = branch --no-merged
+  unstash = stash pop
+  what = show -w
+  untrack = rm -r --cached
+  rewrite = rebase -i
+  amend = commit --amend
+  back = checkout "-"
+  contributors = shortlog -s -n
+  filetrail = git log --follow -p -w
+  mergetrail = log --ancestry-path --merges
+  unmerged = diff --name-only --diff-filter=U
+#+END_SRC
+
+
+* Octotree - plugin for GitHub
+Shows nice source code tree
+
+* [[http://gggritso.com/human-git-aliases][Human git aliases]]
