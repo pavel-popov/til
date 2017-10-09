@@ -70,17 +70,32 @@
 #+END_SRC
 
 
+* Pushing to multiple remotes with one command
+
+There's a question on StackOverflow - [[http://stackoverflow.com/questions/5785549/able-to-push-to-all-git-remotes-with-the-one-command][Able to push to all git remotes with the one command?]].
+
+The solution is to create remote named "all" and place multiple urls there:
+
+#+BEGIN_SRC conf
+[remote "all"]
+url = origin-host:path/proj.git
+url = nodester-host:path/proj.git
+url = duostack-host:path/proj.git
+#+END_SRC
+
+Now one's able to push the project to all Gitlab, Github and Bitbucket with just one command - "git push all master".
+
+
 * Merging multiple commits in single commit in GIT
 
 Use ~git rebase --interactive <ref>~.
 
-
 This will pick up editor with the list of commits to rebase where we can choose what to do with each commit. To merge multiple commits in the single commit we need to keep first commit and squash all the others:
 
 #+BEGIN_SRC txt
-    keep b76d157 first commit after ref
-    s    a931ac7 second commit after ref
-    s    23987dd third commit after ref
+keep b76d157 first commit after ref
+s    a931ac7 second commit after ref
+s    23987dd third commit after ref
 #+END_SRC
 
 On the next step you'll be prompted to put new commit message for rebased commit.
